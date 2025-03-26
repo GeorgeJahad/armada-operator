@@ -3,23 +3,21 @@ jobSetId: job-set-1
 jobs:
   - namespace: default
     priority: 0
+    annotations:
+      io.armadaproject.spark.config/file-1: |
+        # This is an example config file
+        spark:
+          config:
+            option-1: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            option-2: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            option-3: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      io.armadaproject.spark.config/file-2: |
+        # This is another example config file
+          spark:
+            config:
+              option-1: BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+              option-2: BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
     podSpec:
-      metadata:
-        name: config-example
-        annotations:
-          io.armadaproject.spark.config/file-1: |
-            # This is an example config file
-            spark:
-              config:
-                option-1: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-                option-2: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-                option-3: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-          io.armadaproject.spark.config/file-2: |
-            # This is another example config file
-              spark:
-                config:
-                  option-1: BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-                  option-2: BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
       priorityClassName: armada-default
       terminationGracePeriodSeconds: 0
       restartPolicy: Never
